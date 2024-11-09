@@ -1,7 +1,7 @@
 
 function changePostDisabled(e) {
     document.querySelector('#wordcount').innerText = e.value.length
-    if (e.value != '') {
+    if (e.value != '' && document.querySelector('#bcc-input').value != '') {
         document.querySelector('#post-button').disabled = false
     } else {
         document.querySelector('#post-button').disabled = true
@@ -10,7 +10,7 @@ function changePostDisabled(e) {
 
 async function post(text) {
 
-    var users = document.querySelector('#bcc-input').innerText.split(' ')
+    var users = document.querySelector('#bcc-input').value.split(' ')
     console.log(users)
     
     if (accounts[0].type == 'misskey') {
