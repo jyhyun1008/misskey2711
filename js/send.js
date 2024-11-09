@@ -11,6 +11,7 @@ function changePostDisabled(e) {
 async function post(text) {
 
     var users = document.querySelector('#bcc-input').innerText.split(' ')
+    console.log(users)
     
     if (accounts[0].type == 'misskey') {
 
