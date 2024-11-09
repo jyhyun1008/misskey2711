@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'ONE-Mobile-POP';
+    background: var(--bg);
+}
+
+:root {
+    --accent: #ff9899;
+    --bg: #fafafa;
+    --accentlight: #fff6f6;
+    --accentlight2: #ffa8b7;
+}
+
+input, textarea {
+    max-width: -webkit-fill-available;
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid var(--accent);
+    font-family: 'ONE-Mobile-POP';
+    font-size: 1.05em;
+}
+
+button, select {
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid var(--accent);
+    font-size: 1.05em;
+    background-color: var(--accentlight);
+    font-family: 'ONE-Mobile-POP';
+    color: var(--accent);
+}
+
+button:disabled {
+    background-color: white !important;
+}
+
+#app {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#title-box {
+    text-align: center;
+}
+
+#title {
+    color: var(--accent);
+}
+
+#post-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
