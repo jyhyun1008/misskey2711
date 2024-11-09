@@ -18,6 +18,23 @@ async function post(text) {
 
         for await (us of users) {
 
+            var searchUrl = 'https://'+accounts[0].host+'/api/users/search-by-username-and-host'
+            var searchParam = {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: us.split('@')[1],
+                    host: us.split('@')[2]
+                })
+            }
+
+            var searchData = await fetch(searchUrl, searchParam)
+            var searchResult = await searchData.json()
+
+            usersRealId = searchResult[0].id
+
             if (document.querySelector(`#cw-input`).value == '') {
 
                 var param = {
@@ -28,7 +45,7 @@ async function post(text) {
                     body: JSON.stringify({
                         i: accounts[0].token,
                         text: text,
-                        visibleUserIds: [us],
+                        visibleUserIds: [usersRealId],
                         visibility: 'specified',
                     })
                 }
@@ -43,7 +60,7 @@ async function post(text) {
                     body: JSON.stringify({
                         i: accounts[0].token,
                         text: text,
-                        visibleUserIds: [us],
+                        visibleUserIds: [usersRealId],
                         visibility: 'specified',
                         cw: cw,
                     })
@@ -100,8 +117,6 @@ async function post(text) {
         }
     
     }
-
-    getTimeLine()
 
     document.querySelector(`#cw-input`).value = ''
     document.querySelector(`#post-input`).value = ''
