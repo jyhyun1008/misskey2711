@@ -12,9 +12,9 @@ async function post(text) {
 
     var users = document.querySelector('#bcc-input').innerText.split(' ')
     
-    if (accounts[accountIndex].type == 'misskey') {
+    if (accounts[0].type == 'misskey') {
 
-        var url = 'https://'+accounts[accountIndex].host+'/api/notes/create'
+        var url = 'https://'+accounts[0].host+'/api/notes/create'
 
         for await (us of users) {
 
@@ -26,7 +26,7 @@ async function post(text) {
                         'content-type': 'application/json',
                     },
                     body: JSON.stringify({
-                        i: accounts[accountIndex].token,
+                        i: accounts[0].token,
                         text: text,
                         visibleUserIds: [us],
                         visibility: 'specified',
@@ -41,7 +41,7 @@ async function post(text) {
                         'content-type': 'application/json',
                     },
                     body: JSON.stringify({
-                        i: accounts[accountIndex].token,
+                        i: accounts[0].token,
                         text: text,
                         visibleUserIds: [us],
                         visibility: 'specified',
@@ -58,7 +58,7 @@ async function post(text) {
     
     } else { //마스토돈
 
-        var url = `https://${accounts[accountIndex].host}/api/v1/statuses`
+        var url = `https://${accounts[0].host}/api/v1/statuses`
 
         for await (us of users) {
             if (document.querySelector(`#cw-input`).value == '') {
@@ -67,7 +67,7 @@ async function post(text) {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',
-                        'Authorization': `Bearer `+accounts[accountIndex].token,
+                        'Authorization': `Bearer `+accounts[0].token,
                     },
                     body: JSON.stringify({
                         status: us+' '+text,
@@ -82,7 +82,7 @@ async function post(text) {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',
-                        'Authorization': `Bearer `+accounts[accountIndex].token,
+                        'Authorization': `Bearer `+accounts[0].token,
                     },
                     body: JSON.stringify({
                         status: us+' '+text,
