@@ -8,7 +8,7 @@ function changePostDisabled(e) {
     }
 }
 
-async function post(accountIndex, text) {
+async function post(text) {
 
     var users = document.querySelector('#bcc-input').innerText.split(' ')
     
@@ -117,6 +117,6 @@ if (accounts.length > 0) {
 
     if (page !== 'signin' && page !=='callback') {
 
-        document.querySelector('#post-box').innerHTML = '<div id="post-label">게시하기: <span id="wordcount"></span></div><input id="cw-input" placeholder="CW" ><textarea id="post-input" oninput="changePostDisabled(this)"></textarea><input id="bcc-input" placeholder="숨은참조(공백으로 구분)" /><button id="post-button" disabled="true" onclick="post(parseInt(document.querySelector(`#select-input`).value), document.querySelector(`#post-input`).value)">송신!</button>'
+        document.querySelector('#post-box').innerHTML = '<div id="post-label">게시하기: <span id="wordcount"></span></div><input id="cw-input" placeholder="CW" ><textarea id="post-input" oninput="changePostDisabled(this)"></textarea><input id="bcc-input" placeholder="숨은참조(공백으로 구분)" /><button id="post-button" disabled="true" onclick="post(document.querySelector(`#post-input`).value)">송신!</button>'
     }
 }
