@@ -53,7 +53,7 @@ async function signin(host) {
             var mastodonFetchRes = await mastodonFetch.json()
             mastodonSignin()
         } catch(err2) {
-            document.querySelector('#post-box').innerHTML += '정확한 인스턴스 주소를 입력했는지 확인해 주세요!'
+            document.querySelector('#error-box').innerHTML = '정확한 인스턴스 주소를 입력했는지 확인해 주세요!'
         }
     }
 
