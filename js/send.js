@@ -119,6 +119,7 @@ async function post(text) {
     }
 
     document.querySelector(`#cw-input`).value = ''
+    document.querySelector(`#bcc-input`).value = ''
     document.querySelector(`#post-input`).value = ''
     document.querySelector('#post-button').disabled = true
     document.querySelector('#wordcount').innerText = 0
